@@ -7,10 +7,8 @@ if [[ ${unix_os} != *"rhel"* ]]; then
   exit 1 
 fi
 
-download_binaries() {
-  wget -q "http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo"
-  mv virtualbox.repo /etc/yum.repo.d/
-}
+wget -q "http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo"
+cp virtualbox.repo /etc/yum.repos.d/
 
 yum install epel-release -y
 yum update -y
